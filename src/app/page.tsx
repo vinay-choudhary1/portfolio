@@ -3,6 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { projects, skills, contactInformation } from "@/utils/common";
+import {
+  SunIcon,
+  MoonIcon,
+  GithubIcon,
+  LinkedinIcon,
+  EmailIcon,
+  PhoneIcon,
+  MenuIcon,
+  CloseIcon,
+  ArrowRightIcon,
+  ExternalLinkIcon,
+  ArrowDownIcon,
+} from "@/components/icons";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -68,90 +82,6 @@ export default function Home() {
       localStorage.setItem("theme", "light");
     }
   };
-
-  const skills = {
-    frontend: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Sass",
-    ],
-    backend: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "PostgreSQL",
-      "Firebase",
-      "REST API",
-      "GraphQL",
-      "Prisma",
-    ],
-    tools: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Figma",
-      "Docker",
-      "AWS",
-      "Vercel",
-      "Netlify",
-    ],
-  };
-
-  const projects = [
-    {
-      id: 1,
-      title: "E-commerce Platform",
-      description:
-        "A full-stack e-commerce platform with payment integration and admin dashboard.",
-      image: "/placeholder.svg?height=200&width=400&text=E-commerce",
-      tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
-    },
-    {
-      id: 2,
-      title: "Social Media App",
-      description:
-        "A social networking platform with real-time messaging and notifications.",
-      image: "/placeholder.svg?height=200&width=400&text=Social+Media",
-      tags: ["React", "Firebase", "Socket.io", "Tailwind CSS"],
-    },
-    {
-      id: 3,
-      title: "Task Management",
-      description:
-        "A productivity app for managing tasks, projects, and team collaboration.",
-      image: "/placeholder.svg?height=200&width=400&text=Task+App",
-      tags: ["React", "Redux", "Node.js", "MongoDB"],
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      description:
-        "A responsive portfolio website showcasing projects and skills.",
-      image: "/placeholder.svg?height=200&width=400&text=Portfolio",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    },
-    {
-      id: 5,
-      title: "Weather App",
-      description:
-        "A weather application with location-based forecasts and interactive maps.",
-      image: "/placeholder.svg?height=200&width=400&text=Weather+App",
-      tags: ["React", "OpenWeather API", "Leaflet", "Tailwind CSS"],
-    },
-    {
-      id: 6,
-      title: "Blog Platform",
-      description:
-        "A content management system for creating and publishing blog posts.",
-      image: "/placeholder.svg?height=200&width=400&text=Blog+Platform",
-      tags: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
-    },
-  ];
 
   if (!mounted) {
     return null;
@@ -219,100 +149,30 @@ export default function Home() {
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <line x1="12" y1="1" x2="12" y2="3"></line>
-                  <line x1="12" y1="21" x2="12" y2="23"></line>
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                  <line x1="1" y1="12" x2="3" y2="12"></line>
-                  <line x1="21" y1="12" x2="23" y2="12"></line>
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-              )}
+              {darkMode ? <SunIcon /> : <MoonIcon />}
             </button>
             <a
-              href="https://github.com"
+              href={contactInformation.github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="GitHub"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
+              <GithubIcon />
             </a>
             <a
-              href="https://linkedin.com"
+              href={contactInformation.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="LinkedIn"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
+              <LinkedinIcon />
             </a>
             <Link href="#contact">
               <button className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition-opacity text-white font-medium">
                 Contact Me
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <ArrowRightIcon />
               </button>
             </Link>
             <button
@@ -320,20 +180,7 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open menu"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
+              <MenuIcon />
             </button>
           </div>
         </div>
@@ -370,19 +217,7 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                <CloseIcon />
               </button>
             </div>
             <nav className="flex flex-col gap-4">
@@ -419,104 +254,34 @@ export default function Home() {
               <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
                 <button className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition-opacity text-white font-medium">
                   Contact Me
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
+                  <ArrowRightIcon />
                 </button>
               </Link>
               <div className="flex justify-center gap-4 mt-4">
                 <a
-                  href="https://github.com"
+                  href={contactInformation.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   aria-label="GitHub"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
+                  <GithubIcon />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href={contactInformation.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
+                  <LinkedinIcon />
                 </a>
                 <button
                   onClick={toggleTheme}
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   aria-label="Toggle theme"
                 >
-                  {darkMode ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <circle cx="12" cy="12" r="5"></circle>
-                      <line x1="12" y1="1" x2="12" y2="3"></line>
-                      <line x1="12" y1="21" x2="12" y2="23"></line>
-                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                      <line x1="1" y1="12" x2="3" y2="12"></line>
-                      <line x1="21" y1="12" x2="23" y2="12"></line>
-                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                  )}
+                  {darkMode ? <SunIcon /> : <MoonIcon />}
                 </button>
               </div>
             </div>
@@ -547,8 +312,10 @@ export default function Home() {
                     </span>
                   </h1>
                   <p className="max-w-[600px] text-gray-600 dark:text-gray-300 md:text-xl">
-                    I create beautiful, functional, and user-friendly websites
-                    that leave a lasting impression.
+                    Software Engineer with 2.5+ years of experience specializing
+                    in React.js, Next.js, and Node.js development. Skilled in
+                    building scalable, user-centric, and data-driven web
+                    applications.
                   </p>
                 </div>
                 <div className="flex flex-col gap-4 min-[400px]:flex-row">
@@ -565,65 +332,29 @@ export default function Home() {
                 </div>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com"
+                    href={contactInformation.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     aria-label="GitHub"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
+                    <GithubIcon />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href={contactInformation.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     aria-label="LinkedIn"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
+                    <LinkedinIcon />
                   </a>
                   <a
-                    href="mailto:your.email@example.com"
+                    href={`mailto:${contactInformation.email}`}
                     className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     aria-label="Email"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5"
-                    >
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                      <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
+                    <EmailIcon />
                   </a>
                 </div>
               </div>
@@ -644,19 +375,7 @@ export default function Home() {
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <Link href="#about">
               <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors h-10 w-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5 rotate-90"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <ArrowDownIcon />
                 <span className="sr-only">Scroll down</span>
               </button>
             </Link>
@@ -682,8 +401,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div className="relative animate-fade-in-left">
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 ">
+              {/* <div className="relative animate-fade-in-left">
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 opacity-70 blur-2xl"></div>
                 <div className="relative">
                   <img
@@ -694,19 +413,28 @@ export default function Home() {
                     className="mx-auto aspect-square overflow-hidden rounded-2xl object-cover object-center sm:w-full shadow-xl"
                   />
                 </div>
-              </div>
-              <div className="flex flex-col justify-center space-y-6 animate-fade-in-right">
+              </div> */}
+              <div className="flex flex-col justify-center space-y-6 animate-fade-in-right w-fit mx-auto">
                 <ul className="grid gap-6">
                   <li className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm transition-all hover:shadow-md">
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold text-purple-600 dark:text-purple-400">
-                        Background
+                        Experience
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        I have a background in computer science and have been
-                        working in web development for over 5 years,
-                        specializing in creating responsive and accessible web
-                        applications.
+                        Associate Software Engineer at Dianapps (Nov 2022 -
+                        Present)
+                        <br />
+                        • Designed and developed scalable, responsive web
+                        applications
+                        <br />
+                        • Created and integrated RESTful APIs and third-party
+                        services
+                        <br />
+                        • Debugged and resolved issues in live production
+                        environments
+                        <br />• Contributed to architectural discussions and
+                        technical enhancements
                       </p>
                     </div>
                   </li>
@@ -716,21 +444,27 @@ export default function Home() {
                         Education
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        Bachelors degree in Computer Science from University
-                        Name, where I focused on web technologies and user
-                        experience design.
+                        Bachelor of Technology (BTech) in Computer Science &
+                        Engineering
+                        <br />
+                        Global Institute of Technology, Jaipur
+                        <br />
+                        July 2019 to May 2023
+                        <br />
+                        GPA: 8.4
                       </p>
                     </div>
                   </li>
                   <li className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm transition-all hover:shadow-md">
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold text-purple-600 dark:text-purple-400">
-                        Interests
+                        Achievements
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        When Im not coding, I enjoy hiking, reading science
-                        fiction, photography, and exploring new technologies
-                        that push the boundaries of web development.
+                        • Rising Star of the Year (2023): Recognized for
+                        exceptional contributions and innovation
+                        <br />• Director's Choice Award (2022): Awarded for
+                        outstanding performance with a ₹25,000 Amazon voucher
                       </p>
                     </div>
                   </li>
@@ -779,7 +513,7 @@ export default function Home() {
                           alt={project.title}
                           width={400}
                           height={200}
-                          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-48  transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                     </div>
@@ -801,33 +535,26 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <div className="p-6 pt-0 flex justify-between">
-                      <Link href={`#project-${project.id}`}>
-                        <button className="px-4 py-2 rounded-full border border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors text-sm font-medium">
-                          View Details
-                        </button>
-                      </Link>
+                    <div className="p-6 pt-0 flex justify-between relative z-10">
                       <a
-                        href="https://github.com"
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        className="px-4 py-2 rounded-full border border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors text-sm font-medium"
+                      >
+                        View Project
+                      </a>
+
+                      <a
+                        href={project?.link || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
+                          !project.link ? "cursor-not-allowed opacity-50" : ""
+                        }`}
                         aria-label="Live Demo"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-4 w-4"
-                        >
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                          <polyline points="15 3 21 3 21 9"></polyline>
-                          <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
+                        <ExternalLinkIcon />
                       </a>
                     </div>
                   </div>
@@ -955,9 +682,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 lg:grid-cols-2">
+            <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 ">
               <div className="flex flex-col gap-6 animate-fade-in-left">
-                <div className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm">
+                <div className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm w-fit mx-auto">
                   <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">
                     Contact Information
                   </h3>
@@ -968,96 +695,58 @@ export default function Home() {
                   <div className="grid gap-6">
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-purple-100 dark:bg-purple-900/30 p-3">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-5 w-5 text-purple-600 dark:text-purple-400"
-                        >
-                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                          <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
+                        <EmailIcon />
                       </div>
                       <div>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           Email
                         </p>
                         <a
-                          href="mailto:your.email@example.com"
+                          href={`mailto:${contactInformation.email}`}
                           className="text-purple-600 dark:text-purple-400 hover:underline font-medium"
                         >
-                          your.email@example.com
+                          {contactInformation.email}
                         </a>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-purple-100 dark:bg-purple-900/30 p-3">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-5 w-5 text-purple-600 dark:text-purple-400"
-                        >
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                          <rect x="2" y="9" width="4" height="12"></rect>
-                          <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
+                        <LinkedinIcon />
                       </div>
                       <div>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           LinkedIn
                         </p>
                         <a
-                          href="https://linkedin.com"
+                          href={contactInformation.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-purple-600 dark:text-purple-400 hover:underline font-medium"
                         >
-                          linkedin.com/in/yourname
+                          linkedin.com/in/vinay-choudhary1
                         </a>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-purple-100 dark:bg-purple-900/30 p-3">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-5 w-5 text-purple-600 dark:text-purple-400"
-                        >
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
+                        <PhoneIcon />
                       </div>
                       <div>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          GitHub
+                          Phone
                         </p>
                         <a
-                          href="https://github.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href={`tel:${contactInformation.phone}`}
                           className="text-purple-600 dark:text-purple-400 hover:underline font-medium"
                         >
-                          github.com/yourusername
+                          {contactInformation.phone}
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="animate-fade-in-right">
+              {/* <div className="animate-fade-in-right">
                 <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 shadow-lg relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5 dark:from-purple-600/10 dark:to-pink-600/10"></div>
                   <div className="relative">
@@ -1118,7 +807,7 @@ export default function Home() {
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -1130,71 +819,35 @@ export default function Home() {
           <p className="text-center text-sm leading-loose text-gray-500 dark:text-gray-400 md:text-left">
             © {new Date().getFullYear()}{" "}
             <span className="font-medium bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-              Your Name
+              Vinay Choudhary
             </span>
             . All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href={contactInformation.github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="GitHub"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
+              <GithubIcon />
             </a>
             <a
-              href="https://linkedin.com"
+              href={contactInformation.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="LinkedIn"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
+              <LinkedinIcon />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href={`mailto:${contactInformation.email}`}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Email"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+              <EmailIcon />
             </a>
           </div>
         </div>
