@@ -92,7 +92,7 @@ export default function Home() {
       {/* Header */}
       <header
         ref={headerRef}
-        className="fixed top-0 z-50 w-full border-b border-transparent transition-all duration-300 bg-transparent backdrop-blur-sm"
+        className="fixed top-0 z-50 w-full border-b border-transparent transition-all duration-300 bg-transparent"
       >
         <div className="container mx-auto px-4 flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
@@ -294,7 +294,7 @@ export default function Home() {
         <section className="relative w-full min-h-screen flex items-center pt-16">
           <div className="absolute inset-0 overflow-hidden -z-10">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-white dark:from-purple-900/20 dark:via-gray-900 dark:to-gray-900 opacity-80"></div>
-            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10 animate-pulse"></div>
+            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10"></div>
           </div>
           <div className="container mx-auto px-4 py-10 md:py-24">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
@@ -312,10 +312,10 @@ export default function Home() {
                     </span>
                   </h1>
                   <p className="max-w-[600px] text-gray-600 dark:text-gray-300 md:text-xl">
-                    Software Engineer with around 3 years of experience
-                    specializing in React.js, Next.js, and Node.js development.
-                    Skilled in building scalable, user-centric, and data-driven
-                    web applications.
+                    Software Engineer around 3 years of experience specializing
+                    in React.js, Next.js, and Node.js development. Skilled in
+                    building scalable, user-centric, and data-driven web
+                    applications.
                   </p>
                 </div>
                 <div className="flex flex-col gap-4 min-[400px]:flex-row">
@@ -478,7 +478,7 @@ export default function Home() {
         <section id="projects" className="w-full py-20 md:py-32 relative">
           <div className="absolute inset-0 overflow-hidden -z-10">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-white dark:from-purple-900/20 dark:via-gray-900 dark:to-gray-900 opacity-80"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-tr from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10 animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-tr from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10"></div>
           </div>
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -504,8 +504,8 @@ export default function Home() {
                   className="animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="overflow-hidden h-full flex flex-col justify-between group border-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 relative rounded-xl hover:-translate-y-1">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="overflow-hidden h-full flex flex-col justify-between  group border-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 relative rounded-xl">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="p-0">
                       <div className="overflow-hidden h-20 flex items-center ">
                         <img
@@ -565,11 +565,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="w-full py-20 md:py-32 relative">
-          <div className="absolute inset-0 overflow-hidden -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-white dark:from-purple-900/20 dark:via-gray-900 dark:to-gray-900 opacity-80"></div>
-            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10 animate-pulse"></div>
-          </div>
+        <section id="skills" className="w-full py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -632,8 +628,8 @@ export default function Home() {
                               className="group animate-fade-in-up"
                               style={{ animationDelay: `${index * 50}ms` }}
                             >
-                              <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-md hover:border-purple-300 dark:hover:border-purple-700 hover:-translate-y-1 hover:bg-white/80 dark:hover:bg-gray-800/80">
-                                <div className="rounded-full bg-purple-100 dark:bg-purple-900/30 p-3 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/30 transition-colors duration-300 group-hover:scale-110">
+                              <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-md hover:border-purple-300 dark:hover:border-purple-700 hover:-translate-y-1">
+                                <div className="rounded-full bg-purple-100 dark:bg-purple-900/30 p-3 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/30 transition-colors">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
@@ -667,7 +663,7 @@ export default function Home() {
         <section id="contact" className="w-full py-20 md:py-32 relative">
           <div className="absolute inset-0 overflow-hidden -z-10">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-white dark:from-purple-900/20 dark:via-gray-900 dark:to-gray-900 opacity-80"></div>
-            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10 animate-pulse"></div>
+            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 dark:from-purple-600/10 dark:to-pink-600/10 blur-3xl -z-10"></div>
           </div>
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -688,7 +684,7 @@ export default function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 ">
               <div className="flex flex-col gap-6 animate-fade-in-left">
-                <div className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm w-fit mx-auto hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="rounded-xl bg-gray-50 dark:bg-gray-800/50 p-6 shadow-sm w-fit mx-auto">
                   <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">
                     Contact Information
                   </h3>
@@ -748,13 +744,70 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  {/* <Link href="#contact">
-                    <button className="w-full min-[400px]:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition-all duration-300 text-white font-medium hover:shadow-lg hover:shadow-purple-500/20 hover:-translate-y-0.5">
-                      Get in Touch
-                    </button>
-                  </Link> */}
                 </div>
               </div>
+              {/* <div className="animate-fade-in-right">
+                <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 shadow-lg relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5 dark:from-purple-600/10 dark:to-pink-600/10"></div>
+                  <div className="relative">
+                    <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">
+                      Send Me a Message
+                    </h3>
+                    <form className="grid gap-4">
+                      <div className="grid gap-2">
+                        <label
+                          htmlFor="name"
+                          className="text-sm font-medium leading-none"
+                        >
+                          Name
+                        </label>
+                        <input
+                          id="name"
+                          type="text"
+                          className="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm px-3 py-2 text-sm ring-offset-white dark:ring-offset-gray-900 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          placeholder="Your name"
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <label
+                          htmlFor="email"
+                          className="text-sm font-medium leading-none"
+                        >
+                          Email
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          className="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm px-3 py-2 text-sm ring-offset-white dark:ring-offset-gray-900 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          placeholder="Your email"
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <label
+                          htmlFor="message"
+                          className="text-sm font-medium leading-none"
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          id="message"
+                          className="flex min-h-[120px] w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm px-3 py-2 text-sm ring-offset-white dark:ring-offset-gray-900 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          placeholder="Your message"
+                          required
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="w-full px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition-opacity text-white font-medium"
+                      >
+                        Send Message
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </section>
