@@ -504,16 +504,16 @@ export default function Home() {
                   className="animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="overflow-hidden h-full group border-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 relative rounded-xl">
+                  <div className="overflow-hidden h-full flex flex-col justify-between  group border-0 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 relative rounded-xl">
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="p-0">
-                      <div className="overflow-hidden">
+                      <div className="overflow-hidden h-20 flex items-center ">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
                           width={400}
                           height={200}
-                          className="w-full h-48  transition-transform duration-500 group-hover:scale-110"
+                          className="w-auto m-auto h-auto max-h-20 transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                     </div>
