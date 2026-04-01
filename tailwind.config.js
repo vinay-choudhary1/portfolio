@@ -6,7 +6,19 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: 'var(--primary)',
+        'primary-hover': 'var(--primary-hover)',
+        secondary: 'var(--secondary)',
+        'secondary-dark': 'var(--secondary-dark)',
+        accent: 'var(--accent)',
+        'card-bg': 'var(--card-bg)',
+        'card-border': 'var(--card-border)',
+      }
+    },
   },
   plugins: [],
   darkMode: 'class', // Enable dark mode with class strategy
